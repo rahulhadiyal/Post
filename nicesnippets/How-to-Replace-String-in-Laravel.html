@@ -1,0 +1,89 @@
+<p>Hello Friends,</p>
+
+<p>In this tutorial, we will go over the demonstration of how to replace a string in laravel. if you have a question about removing and replacing string laravel code example then I will give a simple example with a solution. I would like to share with you the laravel string to replace all code examples. I explained simply step by step how to replace multiple words in a string in laravel.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have just to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="prettyprint">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: create ReplaceStringController</strong>
+
+<p>we will create ReplaceStringController with Str::replace() method to replace string. so you can see the below code with output:</p>
+
+<pre class="prettyprint">
+php artisan make:controller ReplaceStringController
+</pre>
+
+<strong>App\Http\Controllers\ReplaceStringController</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class ReplaceStringController extends Controller
+{
+    public function replacestring()
+    {
+        $string = 'Welcom to Laravel';
+ 
+        $replaced = Str::replace('Laravel', 'NiceSnippets.com', $string);
+
+        dd($replaced);
+    }
+}
+</pre>
+
+<strong class="step">Step 3: Create Format Route</strong>
+
+<strong>web.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReplaceStringController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/replace', [ReplaceStringController::class, 'replacestring']);
+</pre>
+
+<strong class="step step-start">Step 4: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre>
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre>
+http://localhost:8000/replace
+</pre>
+
+<strong>Output:</strong>
+
+<pre>
+Welcome to NiceSnippets.com
+</pre>

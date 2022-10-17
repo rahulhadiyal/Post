@@ -1,0 +1,99 @@
+<p>Hello Friends,</p>
+
+<p>Today, I want to show you how to update multiple data in laravel. This article will implement a laravel update for multiple records by id. I would like to share the laravel update of multiple rows with an array. This post will give a simple example of updating multiple data in laravel. Here, Creating a basic example of how to update multiple records in laravel.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>If you want to update multiple rows in laravel eloquent then you can use where() with update(), whereIn() with update() method of eloquent. I added three simple examples to update multiple products in laravel eloquent. so let's see the one-by-one example:</p>
+
+<strong class="step">Example 1:</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use App\Models\Product;
+  
+class ProductController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        Product::where("type", 1)
+                ->update(["color" => "red"]);
+  
+        dd("Products updated successfully.");
+    }
+}
+
+</pre>
+
+<strong class="step">Example 2:</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use App\Models\Product;
+  
+class ProductController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $ids = [34, 56, 100, 104];
+  
+        Product::whereIn("id", $ids)
+                ->update([
+                    'color' => 'blue',
+                    'size' => 'XL', 
+                    'price' => 200
+                ]);
+  
+        dd("Products updated successfully.");
+    }
+}
+</pre>
+
+<strong class="step">Example 3:</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use App\Models\Product;
+  
+class ProductController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $ids = [34, 56, 100, 104];
+  
+        Product::whereIn("id", $ids)
+                ->update($request->all());
+  
+        dd("Products updated successfully.");
+    }
+}
+</pre>
+
+<p>i hope it can help you...</p>

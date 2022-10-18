@@ -117,3 +117,7 @@ Title: How to Remove Double Quotes From a String in Laravel?
 28: laravel
 keyword: laravel updates multiple records with an example, how to update multiple rows in laravel, laravel update multiple rows with an array, how to update multiple data in laravel, how to update multiple data in laravel, how to update multiple records in laravel
 Title: Laravel Update Multiple Records with Example
+
+29: laravel
+Keyword: laravel bootstrap tabs example tutorial, how to create dynamic tabs with bootstrap in laravel, create dynamic tabs by using bootstrap in laravel, dynamic bootstrap tabs in laravel, bootstrap tabs in the laravel code example, laravel bootstrap tabs with dynamic content loading example
+Title: Laravel Bootstrap Tabs Example Tutorial

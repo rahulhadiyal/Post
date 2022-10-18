@@ -157,3 +157,7 @@ Title: How to Remove Quotes From a String in Laravel?
 39: laravel
 keyword: how to update multiple data in laravel, laravel update multiple records by id, laravel update multiple rows with an array, how to update multiple data in laravel, how to update multiple records in laravel, how to update multiple rows in laravel
 Title: How to Update Multiple Data in Laravel?
+
+40: laravel
+keyword: laravel bootstrap tabs with dynamic content loading example, laravel bootstrap tabs example tutorial, dynamic bootstrap tabs in laravel, how to create dynamic tabs with bootstrap in laravel, create dynamic tabs by using bootstrap in laravel, bootstrap tabs in a laravel code example
+Title: Laravel Bootstrap Tabs with Dynamic Content Loading Example

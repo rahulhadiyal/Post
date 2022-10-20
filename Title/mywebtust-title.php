@@ -121,3 +121,11 @@ Title: Laravel Update Multiple Records with Example
 29: laravel
 Keyword: laravel bootstrap tabs example tutorial, how to create dynamic tabs with bootstrap in laravel, create dynamic tabs by using bootstrap in laravel, dynamic bootstrap tabs in laravel, bootstrap tabs in the laravel code example, laravel bootstrap tabs with dynamic content loading example
 Title: Laravel Bootstrap Tabs Example Tutorial
+
+30: laravel
+keyword: how to check the current environment in the laravel app, how to check the app environment in laravel, check the application environment in laravel, check the app environment in laravel, laravel check the running app environment, laravel check the app environment
+Title: How to Check the Current Environment in Laravel App?
+
+31: laravel
+keyword: how to remove the first element from a collection in laravel, laravel collection shift remove item code example, laravel collections removing the first element, laravel remove the first item in a collection, laravel remove the first item from the collection, laravel collection remove first item example
+Title: How to Remove the First Element From a Collection in Laravel?

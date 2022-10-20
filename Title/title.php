@@ -161,3 +161,11 @@ Title: How to Update Multiple Data in Laravel?
 40: laravel
 keyword: laravel bootstrap tabs with dynamic content loading example, laravel bootstrap tabs example tutorial, dynamic bootstrap tabs in laravel, how to create dynamic tabs with bootstrap in laravel, create dynamic tabs by using bootstrap in laravel, bootstrap tabs in a laravel code example
 Title: Laravel Bootstrap Tabs with Dynamic Content Loading Example
+
+41: laravel
+keyword: laravel checks the running app environment, laravel checks the app environment, how to check the current environment in the laravel app, checks the application environment laravel, checks the app environment laravel, how to check the app environment in laravel
+Title: Laravel Checks the Running App Environment
+
+42: laravel
+keyword: laravel collection remove first item example, laravel remove the first item in a collection, how to remove the first element from a collection in laravel, laravel collection first item remove, laravel remove the first item from the collection, laravel collection shift remove item Code Example
+Title: Laravel Collection Remove First Item Example

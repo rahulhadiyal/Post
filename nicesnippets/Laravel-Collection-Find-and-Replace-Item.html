@@ -1,0 +1,107 @@
+<p>Hello Friends,</p>
+
+<p>Today, I would like to show you the laravel collection find and replace item example. I want to show you the laravel find and replace the item from the collection. In this article, we will implement a laravel collection to find items and replace them. This post will give you a simple example of how to find and replace an element from a collection in laravel. Here, Creating a basic example of the laravel collection find and replace item Code Example.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have just to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="prettyprint">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Create Format Route</strong>
+
+<strong>web.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FindReplaceController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index',[FindReplaceController::class, 'index']);
+</pre>
+
+<strong class="step">Step 3: create FindReplaceController</strong>
+
+<p>we will create FindReplaceController. so you can see the below code with output:</p>
+
+<pre class="prettyprint">
+php artisan make:controller FindReplaceController
+</pre>
+
+<strong>App\Http\Controllers\FindReplaceController</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class FindReplaceController extends Controller
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    public function index()
+    {
+
+        $collection = collect([0 => 'Taylor', 1 => 'Abigail', 2 => 'James', 3 => 'Ganifar']);
+
+        $selector[] = 1;     
+
+        $replaced = $collection->replace([$selector[0] => 'Victoria']);
+         
+        $replaced->all();
+
+        dd($replaced);
+
+    }
+}
+</pre>
+
+<strong class="step step-start">Step 4: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre>
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre>
+http://localhost:8000/index
+</pre>
+
+<strong>Output:</strong>
+
+<pre>
+#items: array:4 [▼
+    0 => "Taylor"
+    1 => "Victoria"
+    2 => "James"
+    3 => "Ganifar"
+  ]
+</pre>
+
+<p>I hope it can help you...</p>

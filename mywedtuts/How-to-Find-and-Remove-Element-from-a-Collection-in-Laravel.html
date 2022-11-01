@@ -1,0 +1,116 @@
+<img src="/upload/blog/laravel-find-and-remove-elements-from-a-collection.png" class="output-img">
+
+<br>
+<br>
+
+<p>Hello Friends,</p>
+
+<p>Today, I would like to show you how to find and remove elements from a collection in laravel. I want to share with you the laravel find and remove the item from the collection. if you have a question about the laravel collection find items and remove then I will give a simple example with a solution. This article goes into detail on the laravel collection to find and remove item Code Examples.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have just to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="language-php">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Create Format Route</strong>
+
+<span class="bold">
+web.php
+</span>
+
+<pre class="language-php">
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FindRemoveController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index',[FindRemoveController::class, 'index']);
+</pre>
+
+<strong class="step">Step 3: create FindRemoveController</strong>
+
+<p>we will create FindRemoveController. so you can see the below code with output:</p>
+
+<pre class="language-php">
+php artisan make:controller FindRemoveController
+</pre>
+
+<span class="bold">
+App\Http\Controllers\FindRemoveController
+</span>
+
+<pre class="language-php">
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class FindRemoveController extends Controller
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    public function index()
+    {
+        $myCollection = collect(['a' => 0,'b' => 1,'c' => 2,'d' => 3 ,'e' => 4 ]);
+       
+        $selector = ['c'];
+       
+        $filtered = $myCollection->except($selector);
+       
+        $filtered->all();
+      
+        dd($filtered->all());
+    }
+}
+</pre>
+
+<strong class="step step-start">Step 4: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre class="language-php">
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre class="language-php">
+http://localhost:8000/index
+</pre>
+
+<span class="bold">
+Output:
+</span>
+
+<pre class="output">
+ array:4 [▼ // app/Http/Controllers/RemoveFirstController.php:23
+  "a" => 0
+  "b" => 1
+  "d" => 3
+  "e" => 4
+]
+</pre>
+
+<p>I hope it can help you...</p>

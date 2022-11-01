@@ -129,3 +129,15 @@ Title: How to Check the Current Environment in Laravel App?
 31: laravel
 keyword: how to remove the first element from a collection in laravel, laravel collection shift remove item code example, laravel collections removing the first element, laravel remove the first item in a collection, laravel remove the first item from the collection, laravel collection remove first item example
 Title: How to Remove the First Element From a Collection in Laravel?
+
+32: laravel
+keyword: how to remove the last element from a collection in laravel, laravel remove the last item in a collection, how to remove the last element from a collection in laravel, laravel remove the last item from the collection, laravel collection the last item remove, laravel collection remove last item example
+Title: How to Remove the Last Element From Collection in Laravel?
+
+33: laravel
+keyword: how to find and remove elements from a collection in laravel, laravel find and remove the item from the collection, laravel collection find item and remove, laravel collection find and remove item Code Example, laravel find and remove an item in a collection, laravel collection find and remove item example
+Title: How to Find and Remove Elements from a Collection in Laravel?
+
+34: laravel
+keyword: how to find and replace elements from a collection in laravel, laravel collection find and replace item example, laravel collection find item and replace, laravel find and replace the item from the collection, laravel find and replace an item in a collection, laravel collection find and replace item Code Example
+Title: How to Find and Replace Elements from a Collection in Laravel?

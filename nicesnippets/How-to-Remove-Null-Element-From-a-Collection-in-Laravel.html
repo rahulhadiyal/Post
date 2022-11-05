@@ -1,6 +1,6 @@
 <p>Hello Friends,</p>
 
-<p>In this tutorial, you will learn the laravel collection and remove the first item example. I would like to show you that laravel removes the first item in a collection. we will help you give an example of removing the first element from a collection in laravel. step by step explain the laravel collection's first item remove. So, let's follow a few steps to create an example of laravel removing the first item from the collection.</p>
+<p>This example is focused on how to remove a null element from a collection in laravel. I explained simply about the laravel collection remove null item example. let’s discuss laravel collection to remove the null item Code Example. We will use laravel to remove a null item in a collection. Here, Creating a basic example of how to remove null values from a collection in laravel.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -22,7 +22,7 @@ composer create-project laravel/laravel example-app
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RemoveFirstController;
+use App\Http\Controllers\RemoveNullController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +35,18 @@ use App\Http\Controllers\RemoveFirstController;
 |
 */
 
-Route::get('/index',[RemoveFirstController::class, 'index']);
+Route::get('/index',[RemoveNullController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create RemoveFirstController</strong>
+<strong class="step">Step 3: create RemoveNullController</strong>
 
-<p>we will create RemoveFirstController. so you can see the below code with output:</p>
+<p>we will create RemoveNullController. so you can see the below code with output:</p>
 
 <pre class="prettyprint">
-php artisan make:controller RemoveFirstController
+php artisan make:controller RemoveNullController
 </pre>
 
-<strong>App\Http\Controllers\RemoveFirstController</strong>
+<strong>App\Http\Controllers\RemoveNullController</strong>
 
 <pre class="prettyprint">
 &lt;?php
@@ -55,7 +55,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RemoveFirstController extends Controller
+class RemoveNullController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -64,13 +64,12 @@ class RemoveFirstController extends Controller
     */
     public function index()
     {
-        $myCollection = collect(['a','b','c','d','e']);
+        $collection = collect(["Maxy", "Doe", null, "John", null, null, "Gadas"]);
 
-        $removeFirst = $myCollection->shift();
-      
-        $myCollection;
-          
-        dd($myCollection);
+        $newCollection= $collection->filter();
+
+        dd($newCollection);
+
     }
 }
 </pre>
@@ -92,10 +91,12 @@ http://localhost:8000/index
 <strong>Output:</strong>
 
 <pre>
- #items: array:4 [▼
-    0 => "b"
-    1 => "c"
-    2 => "d"
-    3 => "e"
- ]
+#items: array:4 [▼
+    0 => "Maxy"
+    1 => "Doe"
+    3 => "John"
+    6 => "Gadas"
+]
 </pre>
+
+<p>I hope it can help you...</p>

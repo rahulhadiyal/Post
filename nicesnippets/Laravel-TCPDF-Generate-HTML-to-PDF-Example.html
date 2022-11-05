@@ -1,0 +1,251 @@
+<p>Hello Friends,</p>
+
+<p>This tutorial is focused on laravel tcpdf: generate html to pdf example. This article will give you a simple example of how to generate a pdf from html with tcpdf in laravel. we will help you to give an example of generating pdf using the tcpdf library with laravel. step by step explain generate a pdf using tcpdf in laravel example. you will do the following things for the laravel tcpdf tutorial generate html to pdf.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have just to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="prettyprint">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Install TCPDF Package</strong>
+
+<p>To generate HTML to PDF in Laravel we need to install elibyy/tcpdf-laravel package.</p>
+
+<p>Run the following command below:</p>
+
+<pre class="prettyprint">
+composer require elibyy/tcpdf-laravel
+</pre>
+
+<strong class="step">Step 3: Create Format Route</strong>
+
+<strong>web.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index',[PDFController::class, 'index']);
+</pre>
+
+<strong class="step">Step 4: Create PDFController</strong>
+
+<p>Run the command below to make a PDFController controller:</p>
+
+<pre class="prettyprint">
+php artisan make:controller PDFController
+</pre>
+
+<strong>App\Http\Controllers\PDFController</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use PDF;
+  
+class PDFController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $html = '&lt;h1 style="color:red;"&gt;Hello World&lt;/h1&gt;';
+        
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+
+        PDF::Output('hello_world.pdf');
+    }
+}
+</pre>
+
+<strong class="step step-start">Step 5: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre>
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre>
+http://localhost:8000/index
+</pre>
+
+<strong>Here is the Result:</strong>
+
+<div><img src="/image/generate-html-to-pdf.png" style="width: 100%; height: 100%; border: 1px solid #000;"></div>
+
+<p>As you can see we generated our PDF with color so this is awesome because we can support basic styles of CSS.</p>
+
+<strong class="step">Step 6: Download TCPDF Example</strong>
+
+<p>Now, let's try to download the PDF result above. We will save the PDF file to our public folder and then download it.</p>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use PDF;
+  
+class PDFController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $filename = 'hello_world.pdf';
+        $html = '&lt;h1 style="color:red;"&gt;Hello World&lt;/h1&gt;';
+        
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+
+        PDF::Output(public_path($filename), 'F');
+
+        return response()->download(public_path($filename));
+    }   
+}
+</pre>
+
+<strong class="step">Step 7: TCPDF without an Alias</strong>
+
+<p>As we see above we use PDF as our alias. Now let's use the TCPDF class just add it to the above of your controller use Elibyy\TCPDF\Facades\TCPDF;</p>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use Elibyy\TCPDF\Facades\TCPDF;
+  
+class PDFController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $filename = 'hello_world.pdf';
+        $html = '&lt;h1 style="color:red;"&gt;Hello World&lt;/h1&gt;';
+
+        $pdf = new TCPDF;
+        
+        $pdf::SetTitle('Hello World');
+        $pdf::AddPage();
+        $pdf::writeHTML($html, true, false, true, false, '');
+
+        $pdf::Output(public_path($filename), 'F');
+
+        return response()->download(public_path($filename));
+    }
+}
+</pre>
+
+<strong class="step">Step 8: Render HTML from View</strong>
+
+<p>Better to render the HTML from view instead of doing it manually inside our controller.</p>
+
+<p>First, you need to create a folder in my case PDF inside resources/views/ then create a blade file so I will name it sample.blade.php then edit the code see the below example:</p>
+
+<strong>resources/views/PDF/sample.blade.php</strong>
+
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Laravel TCPDF: Generate HTML to PDF Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 style="color:red;"&gt;{!! $title !!}&lt;/h1&gt;
+
+    &lt;br&gt;
+
+    &lt;p&gt;Your message here.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Then edit your controller code.</p>
+
+<strong>App\Http\Controllers\PDFController</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use Elibyy\TCPDF\Facades\TCPDF;
+  
+class PDFController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index(Request $request)
+    {
+        $filename = 'hello_world.pdf';
+
+        $data = [
+            'title' => 'Hello world!'
+        ];
+
+        $view = \View::make('PDF.sample', $data);
+        $html = $view->render();
+
+        $pdf = new TCPDF;
+        
+        $pdf::SetTitle('Hello World');
+        $pdf::AddPage();
+        $pdf::writeHTML($html, true, false, true, false, '');
+
+        $pdf::Output(public_path($filename), 'F');
+
+        return response()->download(public_path($filename));
+    }
+}
+</pre>
+
+<p>For more details about this package visit it <a href="https://github.com/elibyy/tcpdf-laravel">here</a>.</p>
+
+<p>I hope it can help you...</p>

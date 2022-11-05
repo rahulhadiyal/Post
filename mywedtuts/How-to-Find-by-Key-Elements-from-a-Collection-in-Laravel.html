@@ -1,11 +1,11 @@
-<img src="/upload/blog/laravel-remove-the-first-element-from-a-collection.png" class="output-img">
+<img src="/upload/blog/laravel-find-by-key-elements-from-a-collection.png" class="output-img">
 
 <br>
 <br>
 
 <p>Hello Friends,</p>
 
-<p>In this quick example, let's see how to remove the first element from a collection in laravel. it's a simple example of laravel collection shift remove item code example. if you have a question about laravel collections removing the first element then I will give a simple example with a solution. step by step explain that laravel removes the first item in a collection. Alright, let’s dive into the steps.</p>
+<p>In this example, you will learn how to find by key elements from a collection in laravel. if you have a question about laravel find by key the item from the collection then I will give a simple example with a solution. This article will give you a simple example of a laravel collection find an item by key. We will look at an example of a laravel collection found by key item Code Example.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -29,7 +29,7 @@ web.php
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RemoveFirstController;
+use App\Http\Controllers\FindByKeyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,19 +42,19 @@ use App\Http\Controllers\RemoveFirstController;
 |
 */
 
-Route::get('/index',[RemoveFirstController::class, 'index']);
+Route::get('/index',[FindByKeyController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create RemoveFirstController</strong>
+<strong class="step">Step 3: create FindByKeyController</strong>
 
-<p>we will create RemoveFirstController. so you can see the below code with output:</p>
+<p>we will create FindByKeyController. so you can see the below code with output:</p>
 
 <pre class="language-php">
-php artisan make:controller RemoveFirstController
+php artisan make:controller FindByKeyController
 </pre>
 
 <span class="bold">
-App\Http\Controllers\RemoveFirstController
+App\Http\Controllers\FindByKeyController
 </span>
 
 <pre class="language-php">
@@ -64,7 +64,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RemoveFirstController extends Controller
+class FindByKeyController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -73,18 +73,18 @@ class RemoveFirstController extends Controller
     */
     public function index()
     {
-        $myCollection = collect(['a','b','c','d','e']);
 
-        $removeFirst = $myCollection->shift();
-      
-        $myCollection;
-          
-        dd($myCollection);
+        $users = collect(['a' => 'Doe', 'b' => "John" , 'c' => "Gadas" , 'd' => "Maxy"]);
+
+        $value = $users->get('c');
+
+        dd($value);
+
     }
 }
 </pre>
 
-<strong class="step step-start">Step 4: Start Development Server</strong>
+<strong class="step">Step 4: Start Development Server</strong>
 
 <p>Start the development server. Use the PHP artisan serve command and start your server:</p>
 
@@ -103,10 +103,7 @@ Output:
 </span>
 
 <pre class="output">
- #items: array:4 [▼
-    0 => "b"
-    1 => "c"
-    2 => "d"
-    3 => "e"
- ]
+"Gadas" // app/Http/Controllers/RemoveFirstController.php:21
 </pre>
+
+<p>I hope it can help you...</p>

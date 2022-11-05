@@ -182,4 +182,18 @@ Title: Laravel Collection Find and Remove Item Example
 keyword: laravel collection find and replace item example, laravel find and replace the item from the collection, laravel collection find item and replace, how to find and replace an element from a collection in laravel, laravel collection find and replace item Code Example, laravel find and replace an item in a collection
 Title: Laravel Collection Find and Replace Item Example
 
- 
+46: laravel
+keyword: laravel collection find by key item example, laravel find by key an item in a collection, laravel collection find by key item Code Example, laravel collection find an item by key, how to find by key an element from a collection in laravel, laravel find by key the item from the collection
+Title: Laravel Collection Find by Key Item Example
+
+47: laravel
+keyword: laravel find by value an item in a collection, laravel find by value the item from the collection, laravel collection find by value item example, laravel collection find by value item Code Example, how to find by value an element from a collection in laravel, laravel collection find an item by value
+Title: Laravel Find by value an Item in a Collection
+
+48: laravel
+keyword: laravel tcpdf: generate html to pdf example, how to generate a pdf from html with tcpdf in laravel, generate pdf using tcpdf library with laravel, generate a pdf using tcpdf in laravel example, laravel tcpdf tutorial generate html to pdf, how to generate html to pdf with tcpdf in laravel
+Title: Laravel TCPDF: Generate HTML to PDF Example
+
+49: laravel
+keyword: how to remove a null element from a collection in laravel, laravel collection remove null item example, laravel collection remove null item Code Example, laravel remove a null item in a collection, how to remove null values from a collection in laravel, laravel remove null value from the collection
+Title: How to Remove a Null Element From a Collection in Laravel?

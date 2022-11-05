@@ -1,6 +1,6 @@
 <p>Hello Friends,</p>
 
-<p>In this tutorial, we will go over the demonstration of the laravel collection and remove the last item example. Here you will learn how to remove the last element from a collection in laravel. This article will give you a simple example of the laravel collection's last item being removed. This article will give you a simple example of laravel removing the last item from the collection.</p>
+<p>In this tutorial, you will learn laravel to find the value of an item in a collection. let’s discuss laravel find by the value of the item from the collection. I want to share with you the laravel collection finds by value item example. it's a simple example of a laravel collection found by value item Code Example. Follow the below tutorial step on how to find by value an element from a collection in laravel.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -22,7 +22,7 @@ composer create-project laravel/laravel example-app
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RemoveLastController;
+use App\Http\Controllers\FindByValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +35,18 @@ use App\Http\Controllers\RemoveLastController;
 |
 */
 
-Route::get('/index',[RemoveLastController::class, 'index']);
+Route::get('/index',[FindByValueController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create RemoveLastController</strong>
+<strong class="step">Step 3: create FindByValueController</strong>
 
-<p>we will create RemoveLastController. so you can see the below code with output:</p>
+<p>we will create FindByValueController. so you can see the below code with output:</p>
 
 <pre class="prettyprint">
-php artisan make:controller RemoveLastController
+php artisan make:controller FindByValueController
 </pre>
 
-<strong>App\Http\Controllers\RemoveLastController</strong>
+<strong>App\Http\Controllers\FindByValueController</strong>
 
 <pre class="prettyprint">
 &lt;?php
@@ -55,7 +55,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RemoveLastController extends Controller
+class FindByValueController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -64,11 +64,16 @@ class RemoveLastController extends Controller
     */
     public function index()
     {
-        $myCollection = collect(['a','b','c','d','e']);
+        $collection = collect(['Doe',"John" ,"Gadas" ,"Maxy"]);
+            
+        dd($collection->search(function($item, $key) {
+            
+            $value = "John";
 
-        $myCollection = $myCollection->reverse()->slice(1)->reverse();
-          
-        dd($myCollection);
+            return $item == $value;
+        
+        }));
+
     }
 }
 </pre>
@@ -90,12 +95,7 @@ http://localhost:8000/index
 <strong>Output:</strong>
 
 <pre>
-#items: array:4 [▼
-    0 => "a"
-    1 => "b"
-    2 => "c"
-    3 => "d"
-]
+1 // app/Http/Controllers/FindByValueController.php:24
 </pre>
 
-<p>i hope it can help you...</p>
+<p>I hope it can help you...</p>

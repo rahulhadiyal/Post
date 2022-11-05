@@ -1,6 +1,6 @@
 <p>Hello Friends,</p>
 
-<p>Now, let's see the post of the laravel collection find and remove item example. I explained step by step laravel finds and removes an item in a collection. This article will give you a simple example of how to find and remove an element from a collection in laravel. This article will implement a laravel collection to find items and remove them. follow the below step for the laravel collection to find and remove the item Code Example.</p>
+<p>This tutorial shows you the laravel collection found by key item example. it's a simple example of laravel finding by key an item in a collection. this example will help you laravel collection find by key item Code Example. I explained simply about the laravel collection find an item by key. Here, Creating a basic example of how to find by key an element from a collection in laravel.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -22,7 +22,7 @@ composer create-project laravel/laravel example-app
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FindRemoveController;
+use App\Http\Controllers\FindByKeyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +35,18 @@ use App\Http\Controllers\FindRemoveController;
 |
 */
 
-Route::get('/index',[FindRemoveController::class, 'index']);
+Route::get('/index',[FindByKeyController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create FindRemoveController</strong>
+<strong class="step">Step 3: create FindByKeyController</strong>
 
-<p>we will create FindRemoveController. so you can see the below code with output:</p>
+<p>we will create FindByKeyController. so you can see the below code with output:</p>
 
 <pre class="prettyprint">
-php artisan make:controller FindRemoveController
+php artisan make:controller FindByKeyController
 </pre>
 
-<strong>App\Http\Controllers\FindRemoveController</strong>
+<strong>App\Http\Controllers\FindByKeyController</strong>
 
 <pre class="prettyprint">
 &lt;?php
@@ -55,7 +55,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FindRemoveController extends Controller
+class FindByKeyController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -64,15 +64,13 @@ class FindRemoveController extends Controller
     */
     public function index()
     {
-        $myCollection = collect(['a' => 0,'b' => 1,'c' => 2,'d' => 3 ,'e' => 4 ]);
-       
-        $selector = ['c'];
-       
-        $filtered = $myCollection->except($selector);
-       
-        $filtered->all();
-      
-        dd($filtered->all());
+
+        $users = collect(['a' => 'Doe', 'b' => "John" , 'c' => "Gadas" , 'd' => "Maxy"]);
+
+        $value = $users->get('c');
+
+        dd($value);
+
     }
 }
 </pre>
@@ -94,12 +92,7 @@ http://localhost:8000/index
 <strong>Output:</strong>
 
 <pre>
- array:4 [▼ // app/Http/Controllers/RemoveFirstController.php:23
-  "a" => 0
-  "b" => 1
-  "d" => 3
-  "e" => 4
-]
+"Gadas" // app/Http/Controllers/RemoveFirstController.php:21
 </pre>
 
-<p>i hope it can help you...</p>
+<p>I hope it can help you...</p>

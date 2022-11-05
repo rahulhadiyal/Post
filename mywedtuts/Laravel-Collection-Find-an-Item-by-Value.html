@@ -1,12 +1,11 @@
-<img src="/upload/blog/laravel-remove-the-last-element-from-a-collection.png" class="output-img">
+<img src="/upload/blog/laravel-collection-find-an-item-by-value.png" class="output-img">
 
 <br>
 <br>
-
 
 <p>Hello Friends,</p>
 
-<p>Now, let's see a tutorial on how to remove the last element from a collection in laravel. This tutorial will give you a simple example of laravel removing the last item in a collection. I explained simply step by step how to remove the last element from a collection in laravel. I would like to show you that laravel remove the last item from the collection. Follow the below tutorial step of the laravel collection the last item was removed.</p>
+<p>I will explain step-by-step tutorial Laravel Collection Find an Item by Value. This tutorial will give you a simple example of how to find value in an element from a collection in laravel. I want to show you the laravel find by the value of the item from the collection. I explained simply about laravel collection find by value item Code Example.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -30,7 +29,7 @@ web.php
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RemoveLastController;
+use App\Http\Controllers\FindByValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,19 +42,19 @@ use App\Http\Controllers\RemoveLastController;
 |
 */
 
-Route::get('/index',[RemoveLastController::class, 'index']);
+Route::get('/index',[FindByValueController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create RemoveLastController</strong>
+<strong class="step">Step 3: create FindByValueController</strong>
 
-<p>we will create RemoveLastController. so you can see the below code with output:</p>
+<p>we will create FindByValueController. so you can see the below code with output:</p>
 
 <pre class="language-php">
-php artisan make:controller RemoveLastController
+php artisan make:controller FindByValueController
 </pre>
 
 <span class="bold">
-App\Http\Controllers\RemoveLastController
+App\Http\Controllers\FindByValueController
 </span>
 
 <pre class="language-php">
@@ -65,7 +64,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RemoveLastController extends Controller
+class FindByValueController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -74,16 +73,21 @@ class RemoveLastController extends Controller
     */
     public function index()
     {
-        $myCollection = collect(['a','b','c','d','e']);
+        $collection = collect(['Doe',"John" ,"Gadas" ,"Maxy"]);
+            
+        dd($collection->search(function($item, $key) {
+            
+            $value = "John";
 
-        $myCollection = $myCollection->reverse()->slice(1)->reverse();
-          
-        dd($myCollection);
+            return $item == $value;
+        
+        }));
+
     }
 }
 </pre>
 
-<strong class="step step-start">Step 4: Start Development Server</strong>
+<strong class="step">Step 4: Start Development Server</strong>
 
 <p>Start the development server. Use the PHP artisan serve command and start your server:</p>
 
@@ -102,12 +106,7 @@ Output:
 </span>
 
 <pre class="output">
-#items: array:4 [▼
-    0 => "a"
-    1 => "b"
-    2 => "c"
-    3 => "d"
-]
+1 // app/Http/Controllers/FindByValueController.php:24
 </pre>
 
-<p>i hope it can help you...</p>
+<p>I hope it can help you...</p>

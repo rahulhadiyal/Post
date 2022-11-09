@@ -157,3 +157,15 @@ Title: Generate a PDF using TCPDF in Laravel Example
 38: laravel
 keyword: laravel remove null value from the collection, how to remove a null element from a collection in laravel, how to remove null values from a collection in laravel, laravel remove a null item in a collection, laravel collection remove null item example, laravel collection remove null item Code Example
 Title: Laravel Remove Null Value From the Collection
+
+39: laravel
+keyword: how to remove an empty element from a collection in laravel, laravel collection remove empty item example, laravel remove empty value from the collection, how to remove empty values from a collection in laravel, laravel collection remove empty item code example, laravel remove an empty item in a collection
+Title: How to Remove an Empty Element From a Collection in Laravel?
+
+40: laravel
+keyword: laravel datatable date range filter example, laravel yajra datatables date range filter example, how to implement date range filter in yajra datatables in laravel, yajra datatables date range filter example in laravel, filter data between two dates in yajra datatables in laravel example, how to filter data between two dates in yajra datatables
+Title: Laravel Datatable Date Range Filter Example
+
+41: laravel
+keyword: laravel remove an element by key in a collection, laravel remove by key the item from the collection, laravel collection remove by key item code example, laravel collection remove an item by key, how to remove an element by key from a collection in laravel, laravel collection remove by key item example
+Title: Laravel Remove an Element by Key in a Collection

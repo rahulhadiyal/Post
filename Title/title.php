@@ -197,3 +197,19 @@ Title: Laravel TCPDF: Generate HTML to PDF Example
 49: laravel
 keyword: how to remove a null element from a collection in laravel, laravel collection remove null item example, laravel collection remove null item Code Example, laravel remove a null item in a collection, how to remove null values from a collection in laravel, laravel remove null value from the collection
 Title: How to Remove a Null Element From a Collection in Laravel?
+
+50: php
+keyword: php mysql charts js line chart example tutorial, how to create chart js line chart in php mysql, how to implement dynamic graph from php mysql with chart js, how to create dynamic data graph using php and chart js, a line chart with chart js in php and mysql, how to a dynamic graph from php mysql with chart js
+Title: PHP MySQL Charts JS Line Chart Example Tutorial
+
+51: laravel
+keyword: laravel remove an empty item in a collection, how to remove an empty element from a collection in laravel, how to remove empty values from a collection in laravel, laravel collection remove empty item code example, laravel remove empty value from the collection, laravel collection remove empty item example
+Title: Laravel Remove an Empty Item in a Collection
+
+52: laravel
+keyword: filter data between two dates in yajra datatables in laravel example, yajra datatables date range filter example in laravel, how to filter data between two dates in yajra datatables, date range filter data in laravel using yajra datatable, how to implement date range filter in Yajra datatables in laravel, laravel yajra datatables date range filter example
+Title: Filter Data Between Two Dates in Yajra Datatables in Laravel Example
+
+53: laravel
+Keyword: how to remove an element by key from a collection in laravel, laravel collection remove by key item example, laravel remove by key an item in a collection, laravel collection remove an item by key, laravel collection remove by key item code example, laravel remove by key the item from the collection
+Title: How to Remove an Element by Key From a Collection in Laravel?

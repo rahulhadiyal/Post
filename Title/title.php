@@ -213,3 +213,7 @@ Title: Filter Data Between Two Dates in Yajra Datatables in Laravel Example
 53: laravel
 Keyword: how to remove an element by key from a collection in laravel, laravel collection remove by key item example, laravel remove by key an item in a collection, laravel collection remove an item by key, laravel collection remove by key item code example, laravel remove by key the item from the collection
 Title: How to Remove an Element by Key From a Collection in Laravel?
+
+54: laravel
+keyword: laravel collection remove an element by value, how to remove an element by value from a collection in laravel, laravel remove by value the item from the collection, laravel collection remove by value item code example, laravel collection remove by value item example, laravel remove by value an item in a collection
+Title: Laravel Collection Remove an Element by Value

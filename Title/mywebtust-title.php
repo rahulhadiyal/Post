@@ -169,3 +169,7 @@ Title: Laravel Datatable Date Range Filter Example
 41: laravel
 keyword: laravel remove an element by key in a collection, laravel remove by key the item from the collection, laravel collection remove by key item code example, laravel collection remove an item by key, how to remove an element by key from a collection in laravel, laravel collection remove by key item example
 Title: Laravel Remove an Element by Key in a Collection
+
+42: laravel
+keyword: how to remove an element by value from a collection in laravel, laravel remove by value an item in a collection, laravel collection remove by value item code example, laravel collection remove by value item example, laravel remove by value the item from the collection, laravel collection remove an element by value
+Title: How to Remove an Element by Value From a Collection in Laravel?

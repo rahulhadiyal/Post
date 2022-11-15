@@ -173,3 +173,11 @@ Title: Laravel Remove an Element by Key in a Collection
 42: laravel
 keyword: how to remove an element by value from a collection in laravel, laravel remove by value an item in a collection, laravel collection remove by value item code example, laravel collection remove by value item example, laravel remove by value the item from the collection, laravel collection remove an element by value
 Title: How to Remove an Element by Value From a Collection in Laravel?
+
+43: laravel
+keyword: laravel collection add multiple item example, how to add multiple items to a collection in laravel, laravel add multiple items in a collection, add multiple elements in laravel collection, how to add multiple values to a collection in laravel, laravel collection add multiple items
+Title: Laravel Collection Add Multiple Item Example
+
+44: laravel
+keyword: laravel gets the average from a column with code examples, laravel gets the average from a column with code examples, how to calculate column average in laravel collection, laravel collection calculates column average, how to get the average of column values in laravel, laravel collection calculates average column example, calculate column average in laravel collection
+Title: Laravel Gets the Average from a Column with Code Examples

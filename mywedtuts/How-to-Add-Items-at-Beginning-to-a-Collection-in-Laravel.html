@@ -1,0 +1,115 @@
+<img src="/upload/blog/laravel-add-items-at-the-beginning-to-a-collection.png" class="output-img">
+
+<br>
+<br>
+
+<p>Hello Friends,</p>
+
+<p>In this tutorial, you will learn how to add items at the beginning of a collection in laravel. we will help you to give examples of how to add values to a collection at the beginning in laravel. I would like to show you laravel add elements at the beginning of a collection. let’s discuss the laravel collection add items at the beginning example. Alright, let’s dive into the steps.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have just to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="language-php">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Create Format Route</strong>
+
+<span class="bold">
+web.php
+</span>
+
+<pre class="language-php">
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddAtBeginningController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index',[AddAtBeginningController::class, 'index']);
+</pre>
+
+<strong class="step">Step 3: create AddAtBeginningController</strong>
+
+<p>we will create AddAtBeginningController. so you can see the below code with output:</p>
+
+<pre class="language-php">
+php artisan make:controller AddAtBeginningController
+</pre>
+
+<span class="bold">
+App\Http\Controllers\AddAtBeginningController
+</span>
+
+<pre class="language-php">
+&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class AddAtBeginningController extends Controller
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    public function index()
+    {
+        // Create a new collection instance.
+        $collection = new Collection(['a' => 'Doe', 'b' => "John" , 'c' => "Gadas" , 'd' => "Maxy"]);
+         
+        // Add a new item to the beginning of the collection.
+        $collection->prepend('Rowan', 'e');
+        
+        dd($collection);
+    }
+}
+</pre>
+
+<strong class="step">Step 4: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre class="language-php">
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre class="language-php">
+http://localhost:8000/index
+</pre>
+
+<span class="bold">
+Output:
+</span>
+
+<pre class="output">
+#items: array:5 [▼
+    "e" => "Rowan"
+    "a" => "Doe"
+    "b" => "John"
+    "c" => "Gadas"
+    "d" => "Maxy"
+]
+</pre>
+
+<p>I hope it can help you...</p>

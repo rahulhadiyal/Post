@@ -225,3 +225,7 @@ Title: How to Add Multiple Items to a Collection in Laravel?
 56: laravel
 keyword: how to calculate column average in laravel collection, laravel collection calculate column average, calculate column average in laravel collection, laravel collection calculate column average example, how to get average of column values in laravel, laravel get average from a column with code examples
 Title: How to Calculate Column Average in Laravel Collection?
+
+57: laravel
+keyword: laravel add items at the beginning of the collection, how to add items at the beginning of a collection in laravel, laravel collection add items at the beginning, laravel collection add items at the beginning example, laravel add an element at the beginning to the collection, how to add values to a collection at the beginning in laravel
+Title: Laravel Add Items at the Beginning of the Collection

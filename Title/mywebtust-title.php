@@ -185,3 +185,7 @@ Title: Laravel Gets the Average from a Column with Code Examples
 45: laravel
 keyword: how to add items at the beginning to a collection in laravel, how to add values to a collection at the beginning in laravel, laravel add elements at the beginning of a collection, laravel collection add items at the beginning example, laravel add items at the beginning to the collection, laravel collection add items at the beginning
 Title: How to Add Items at the Beginning to a Collection in Laravel?
+
+46: laravel
+keyword: laravel add if items do not exist in a collection, laravel collection add if items do not exist example, add if elements do not exist in laravel collection, laravel collection add if items not exist, how to add if values do not exist to a collection in laravel, how to add if items do not exist to a collection in laravel
+Title: Laravel Add if Items do not Exist in a Collection

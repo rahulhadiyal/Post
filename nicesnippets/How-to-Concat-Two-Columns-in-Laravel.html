@@ -1,8 +1,18 @@
 <p>Hello Friends,</p>
 
-<p>n this tutorial we will go over the demonstration of laravel add items at the beginning of the collection. This article goes into detail on how to add items at the beginning of a collection in laravel. let’s discuss the laravel collection and add items at the beginning. I explained simply about the laravel collection add items at the beginning example. Here, Creating a basic example of a laravel add an element at the beginning of the collection.</p>
+<p>Here, I will show you how to concat multiple columns in laravel. if you have a question about laravel concatenating multiple columns with an example then I will give a simple example with a solution. I want to share with you concatenate collections of laravel. I explained simply about the laravel collection concat example. Let's get started with the laravel collection merge example.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<strong>Count Syntax:</strong>
+
+<pre>
+$collecton->concat(
+
+    Array OR Collection
+
+);
+</pre>
 
 <p>You have just to follow the below step and you will get the layout as below:</p>
 
@@ -22,7 +32,7 @@ composer create-project laravel/laravel example-app
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AddAtBeginningController;
+use App\Http\Controllers\ConcatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +45,18 @@ use App\Http\Controllers\AddAtBeginningController;
 |
 */
 
-Route::get('/index',[AddAtBeginningController::class, 'index']);
+Route::get('/index',[ConcatController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create AddAtBeginningController</strong>
+<strong class="step">Step 3: create ConcatController</strong>
 
-<p>we will create AddAtBeginningController. so you can see the below code with output:</p>
+<p>we will create ConcatController. so you can see the below code with output:</p>
 
 <pre class="prettyprint">
-php artisan make:controller AddAtBeginningController
+php artisan make:controller ConcatController
 </pre>
 
-<strong>App\Http\Controllers\AddAtBeginningController</strong>
+<strong>App\Http\Controllers\ConcatController</strong>
 
 <pre class="prettyprint">
 &lt;?php
@@ -55,7 +65,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AddAtBeginningController extends Controller
+class ConcatController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -64,12 +74,14 @@ class AddAtBeginningController extends Controller
     */
     public function index()
     {
-        // Create a new collection instance.
-        $collection = new Collection(['a' => 'Doe', 'b' => "John" , 'c' => "Gadas" , 'd' => "Maxy"]);
-         
-        // Add a new item to the beginning of the collection.
-        $collection->prepend('Rowan', 'e');
+        $collectionA = collect(["One"]);
         
+        $collectionB = collect(["Two"]);
+        
+        $collectionC = collect(["Three"]);
+      
+        $collection = $collectionA->concat($collectionB)->concat($collectionC);
+            
         dd($collection);
     }
 }
@@ -92,12 +104,10 @@ http://localhost:8000/index
 <strong>Output:</strong>
 
 <pre>
-#items: array:5 [▼
-    "e" => "Rowan"
-    "a" => "Doe"
-    "b" => "John"
-    "c" => "Gadas"
-    "d" => "Maxy"
+#items: array:3 [▼
+    0 => "One"
+    1 => "Two"
+    2 => "Three"
 ]
 </pre>
 

@@ -233,3 +233,15 @@ Title: Laravel Add Items at the Beginning of the Collection
 58: laravel
 keyword: how to add if items do not exist to a collection in laravel, add if elements do not exist in laravel collection, laravel collection add if items do not exist example, how to add if values do not exist to a collection in laravel, laravel add if items do not exist in a collection, laravel collection add if items not exist
 Title: How to Add if Items do not Exist to a Collection in Laravel?
+
+59: laravel
+keyword: how to add items at the end to a collection in laravel, laravel collection add items at the end, laravel add items at the end to the collection, laravel add elements at the end of a collection, how to add values to a collection at the end in laravel, laravel collection add items at the end example
+Title: How to Add Items at the End to a Collection in Laravel?
+
+60: laravel
+keyword: how to concat multiple columns in laravel, laravel concatenate multiple columns with example, concatenate collections laravel, laravel collection concat example, laravel collection merge example, laravel concat items of the collection example
+Title: How to Concat Multiple Columns in Laravel?
+
+61: laravel
+keyword: laravel merge unique values in the collection, how to merge unique values of a collection in laravel, laravel collection merge unique values example, laravel merge unique values to the collection, laravel collection merge unique values, how to merge unique values to the collection in laravel
+Title: Laravel Merge Unique values in the Collection

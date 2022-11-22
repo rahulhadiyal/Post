@@ -1,11 +1,11 @@
-<img src="/upload/blog/laravel-add-if-items-do-not-exist-in-a-collection.png" class="output-img">
+<img src="/upload/blog/laravel-merge-unique-values-of-a-collection.png" class="output-img">
 
 <br>
 <br>
 
 <p>Hello Friends,</p>
 
-<p>Now, let's see an example of laravel add if items do not exist in a collection. you will learn laravel collection add if items do not exist example. This article will give you a simple example of adding if elements do not exist in the laravel collection. I would like to show you the laravel collection ad if items do not exist. Let's see below an example of how to add values that do not exist to a collection in laravel.</p>
+<p>This tutorial is focused on how to merge the unique values of a collection in laravel. let’s discuss about how to merge unique values into the collection in laravel. We will look at an example of a laravel collection merging unique values. This post will give you a simple example of laravel merging unique values into the collection. Here, Creating a basic example of a laravel collection merges unique values examples.</p>
 
 <p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
 
@@ -29,7 +29,7 @@ web.php
 &lt;?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AddIfNotExistsController;
+use App\Http\Controllers\MergeUniqueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,19 +42,19 @@ use App\Http\Controllers\AddIfNotExistsController;
 |
 */
 
-Route::get('/index',[AddIfNotExistsController::class, 'index']);
+Route::get('/index',[MergeUniqueController::class, 'index']);
 </pre>
 
-<strong class="step">Step 3: create AddIfNotExistsController</strong>
+<strong class="step">Step 3: create MergeUniqueController</strong>
 
-<p>we will create AddIfNotExistsController. so you can see the below code with output:</p>
+<p>we will create MergeUniqueController. so you can see the below code with output:</p>
 
 <pre class="language-php">
-php artisan make:controller AddIfNotExistsController
+php artisan make:controller MergeUniqueController
 </pre>
 
 <span class="bold">
-App\Http\Controllers\AddIfNotExistsController
+App\Http\Controllers\MergeUniqueController
 </span>
 
 <pre class="language-php">
@@ -64,7 +64,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AddIfNotExistsController extends Controller
+class MergeUniqueController extends Controller
 {
     /**
      * The attributes that are mass assignable.
@@ -73,22 +73,21 @@ class AddIfNotExistsController extends Controller
     */
     public function index()
     {
+        $firstCollection = collect(['One', 'Two', 'Three']);
 
-        $collection = new Collection(['a' => 'Doe', 'b' => "John" , 'c' => "Gadas" , 'd' => "Maxy"]);
-         
-        $selector = 'Robin';
+        $secondCollection = collect(['Three', 'Four', 'Five']);
 
-        if(!$collection->contains($selector)){
-         
-            $collection->prepend($selector, 'e');
-         
-            dd($collection);
+        $mergedCollection = $firstCollection->merge($secondCollection);
 
-        } else{
-            
-            dd($selector.' Already extends.');
-        
-        }
+        $mergedCollection = $mergedCollection->unique(function ($item) {
+
+                            return $item;
+
+                        });
+
+        $mergedCollection->all();
+
+        dd($mergedCollection);
     }
 }
 </pre>
@@ -113,11 +112,11 @@ Output:
 
 <pre class="output">
 #items: array:5 [▼
-    "e" => "Robin"
-    "a" => "Doe"
-    "b" => "John"
-    "c" => "Gadas"
-    "d" => "Maxy"
+    0 => "One"
+    1 => "Two"
+    2 => "Three"
+    4 => "Four"
+    5 => "Five"
 ]
 </pre>
 

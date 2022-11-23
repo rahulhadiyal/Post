@@ -201,3 +201,11 @@ Title: Laravel Concat Items of the Collection Example
 49: laravel
 keyword: how to merge unique values of a collection in laravel, how to merge unique values to the collection in laravel, laravel collection merge unique values, laravel merge unique values to the collection, laravel collection merge unique values example, laravel merge unique values in the collection
 Title: How to Merge Unique Values of a Collection in Laravel?
+
+50: laravel
+keyword: check for file existence of a blade template in laravel, laravel check if a blade file exists example, check the existence of a blade file in laravel, how to check if a blade file exists in laravel, laravel check if a blade file exists, laravel check if a blade file exists with example
+Title: Check For File Existence of a Blade Template in Laravel
+
+51: laravel
+keyword: how to check if a file exists at storage in laravel, check the existence of a file at storage in laravel, laravel check if a file exists in storage, laravel check if a file exists in storage with an example, check for file existence at storage in laravel, laravel check if a file exists at storage example
+Title: How to Check if a File Exists at Storage in Laravel?

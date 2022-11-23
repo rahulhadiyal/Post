@@ -245,3 +245,11 @@ Title: How to Concat Multiple Columns in Laravel?
 61: laravel
 keyword: laravel merge unique values in the collection, how to merge unique values of a collection in laravel, laravel collection merge unique values example, laravel merge unique values to the collection, laravel collection merge unique values, how to merge unique values to the collection in laravel
 Title: Laravel Merge Unique values in the Collection
+
+62: larave
+keyword: how to check if a blade file exists in laravel, laravel check if a blade file exists example, laravel check if a blade file exists, laravel check if blade file exists with example, check for file existence of blade template in laravel, check the existence of blade file in laravel
+Title: How to Check if a Blade File Exists in Laravel?
+
+63: laravel
+keyword: check for file existence at storage in laravel, how to check if a file exists at storage in laravel, laravel check if a file exists in storage with an example, laravel check if a file exists in storage, laravel check if a file exists at storage example, check the existence of a file at storage in laravel
+Title: Check For File Existence at Storage in Laravel

@@ -253,3 +253,11 @@ Title: How to Check if a Blade File Exists in Laravel?
 63: laravel
 keyword: check for file existence at storage in laravel, how to check if a file exists at storage in laravel, laravel check if a file exists in storage with an example, laravel check if a file exists in storage, laravel check if a file exists at storage example, check the existence of a file at storage in laravel
 Title: Check For File Existence at Storage in Laravel
+
+64: laravel
+keyword: how to setup passwordless login in laravel, how to login with magic link in laravel, laravel passwordless magic login links, laravel passwordless magic login link generator, implement email magic link authentication in laravel, Laravel Passwordless Login with Magic Link Tutorial
+Title: How to Setup Passwordless Login in Laravel?
+
+65: laravel
+keyword: how to check if a file exists in a public folder in laravel, check for file existence at the public folder in laravel, check the existence of a file at the public folder in laravel, laravel check if a file exists in the public folder, laravel check if a file exists at public folder example, laravel check if a file exists in the public folder with an example
+Title: How to Check if a File Exists in a Public Folder in Laravel?

@@ -1,0 +1,383 @@
+<img src="/upload/blog/laravel-register-avatar.png" class="output-img" style="border: 1px solid #d2d2d2;">
+
+<br>
+<br>
+
+<p>Hello Friends,</p>
+
+<p>Here, I will show you the laravel registration image upload with an example. step by step explains laravel and how to upload profile images of users in laravel. if you want to see an example of uploading a profile picture in laravel registration then you are in the right place. I explained simply about the laravel avatar upload in the registration form. Here, Creating a basic example of how to upload images in the registration form in laravel.</p>
+
+<p>If you want to upload pictures when the user registers in laravel. Then I will show you a step-by-step example of how to upload image in registration form in laravel. In this example, we will install laravel ui for user authentication. Then we will add a new column avatar to store the image path. So, let's see the below steps:</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="language-php">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Setup Database Configuration</strong>
+
+<p>After successfully installing the laravel app then after configuring the database setup. We will open the ".env" file and change the database name, username and password in the env file.</p>
+
+<span class="bold">
+.env
+</span>
+
+<pre class="language-php">
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=Enter_Your_Database_Name
+DB_USERNAME=Enter_Your_Database_Username
+DB_PASSWORD=Enter_Your_Database_Password
+</pre>
+
+<strong class="step">Step 3: Install Auth Scaffold</strong>
+
+<p>Laravel's laravel/ui package provides a quick way to scaffold all of the routes and views you need for authentication using a few simple commands:</p>
+
+<pre class="language-php">
+composer require laravel/ui
+</pre>
+
+<p>Next, we need to generate auth scaffold with bootstrap, so let's run the below command:</p>
+
+<pre class="language-php">
+php artisan ui bootstrap --auth
+</pre>
+
+<p>Then, install npm packages using the below command:</p>
+
+<pre class="language-php">
+npm install
+</pre>
+
+<p>At last, built bootstrap CSS using the below command:</p>
+
+<pre class="language-php">
+npm run build
+</pre>
+
+<strong class="step">Step 4: Create Migration</strong>
+
+<p>In this step, we need to create new migration to add avatar field to users table. so let's run the below code and run migration.</p>
+
+<pre class="language-php">
+php artisan make:migration add_new_fields_users
+</pre>
+
+<span class="bold">
+database/migrations/2022_11_24_110854_add_new_fields_users.php
+</span>
+
+<pre class="language-php">
+&lt;?php
+  
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+  
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->nullable();
+        });
+    }
+  
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar');
+        });
+    }
+};
+</pre>
+
+<p>Now, run migration with following command:</p>
+
+<pre class="language-php">
+php artisan migrate
+</pre>
+
+<p>Next, update User.php model file.</p>
+
+<span class="bold">
+app/Models/User.php
+</span>
+
+<pre class="language-php">
+&lt;?php
+    
+namespace App\Models;
+    
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+  
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+ 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'avatar',
+    ];
+  
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+  
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+}
+</pre>
+
+<strong class="step">Step 5: Update Blade File</strong>
+
+<p>In this step, we will update register blade file. in this file we will add file input for profile picture upload. so let's update following file:</p>
+
+<span class="bold">
+resources/views/auth/register.blade.php
+</span>
+
+<pre class="language-php">
+@extends('layouts.app')
+  
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;{{ __('Register') }}&lt;/div&gt;
+  
+                &lt;div class="card-body"&gt;
+                    &lt;form method="POST" action="{{ route('register') }}" enctype="multipart/form-data"&gt;
+                        @csrf
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="name" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Name') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus&gt;
+  
+                                @error('name')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="email" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Email Address') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"&gt;
+                                @error('email')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="avatar" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Avatar') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar"&gt;
+  
+                                @error('avatar')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="password" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Password') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"&gt;
+  
+                                @error('password')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="password-confirm" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Confirm Password') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-0"&gt;
+                            &lt;div class="col-md-6 offset-md-4"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;
+                                    {{ __('Register') }}
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+</pre>
+
+<strong class="step">Step 6: Update RegisterController Controller</strong>
+
+<p>Here, we will update RegisterController with validator() and create() method. image will store in avatars folder in public. so let's copy the below code and add to controller file:</p>
+
+<span class="bold">
+app/Http/Controllers/Auth/RegisterController.php
+</span>
+
+<pre class="language-php">
+&lt;?php
+  
+namespace App\Http\Controllers\Auth;
+  
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use App\Models\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+  
+class RegisterController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Register Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
+    |
+    */
+  
+    use RegistersUsers;
+  
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
+  
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }  
+  
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'avatar' => ['image'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+  
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    protected function create(array $data)
+    {
+        if(request()->hasfile('avatar')){
+            $avatarName = time().'.'.request()->avatar->getClientOriginalExtension();
+            request()->avatar->move(public_path('avatars'), $avatarName);
+        }
+  
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'avatar' => $avatarName ?? NULL,
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+}
+</pre>
+
+<strong class="step">Run Laravel App:</strong>
+
+<p>All the required steps have been done, now you have to type the given below command and hit enter to run the Laravel app:</p>
+
+<pre class="output">
+php artisan serve
+</pre>
+
+<p>Now, Go to your web browser, type the given URL and view the app output:</p>
+
+<pre class="output">
+http://localhost:8000/
+</pre>
+
+<span class="bold">
+Output:
+</span>
+
+<img src="/upload/blog/laravel-register-avatar.png" class="output-img" style="border: 1px solid #d2d2d2;">
+
+<p>I hope it can help you...</p>

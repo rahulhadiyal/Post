@@ -261,3 +261,11 @@ Title: How to Setup Passwordless Login in Laravel?
 65: laravel
 keyword: how to check if a file exists in a public folder in laravel, check for file existence at the public folder in laravel, check the existence of a file at the public folder in laravel, laravel check if a file exists in the public folder, laravel check if a file exists at public folder example, laravel check if a file exists in the public folder with an example
 Title: How to Check if a File Exists in a Public Folder in Laravel?
+
+66: laravel
+keyword: check in blade file if the variable is empty in laravel, laravel check in blade file if variable is empty, laravel check in blade file if a variable is empty or not an example, how to check in blade file if a variable is empty in laravel, how to check if a variable is empty in laravel blade, laravel check in blade file if a variable is empty with an example
+Title: Check in Blade File if the Variable is Empty in Laravel
+
+67: laravel
+keyword: how to upload an image in the registration form in laravel, laravel avatar upload in the registration form, upload avatar in laravel registration, laravel registration with image upload, upload profile picture in laravel registration, how to upload a profile image of a user in laravel
+Title: How to Upload an Image in the Registration Form in Laravel?

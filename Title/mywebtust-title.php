@@ -214,6 +214,14 @@ Title: How to Check if a File Exists at Storage in Laravel?
 keyword: how to log in with magic link in laravel, laravel passwordless login with magic link tutorial, implement email magic link authentication in laravel, laravel passwordless magic login link generator, how to setup passwordless login in laravel, laravel passwordless magic login links
 Title: How to Login with Magic Link in Laravel?
 
-53:laravel
+53: laravel
 keyword: check for file existence in public folder in laravel, laravel check if a file exists in public folder, how to check if a file exists at public folder in laravel, check the existence of a file at public folder in laravel, laravel check if a file exists in public folder with an example, laravel check if a file exists at public folder example
 Title: Check For File Existence in Public Folder in Laravel
+
+54: laravel
+keyword: how to check if a variable is empty in laravel blade, laravel check in blade file if a variable is empty with an example, how to check in blade file if a variable is empty in laravel, laravel check in blade file if a variable is empty or not an example, check in blade file if a variable is empty in laravel, laravel check in blade file if a variable is empty
+Title: How to Check if a Variable is Empty in Laravel Blade?
+
+55: laravel 
+keyword: laravel registration image upload with an example, how to upload a profile image of a user in laravel, upload profile picture in laravel registration, laravel avatar upload in the registration form, upload avatar in laravel registration, how to upload image in the registration form in laravel
+Title: Laravel Registration Image Upload With an Example

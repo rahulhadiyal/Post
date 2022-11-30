@@ -1,0 +1,123 @@
+<p>Hello Friends,</p>
+
+<p>I will explain a step-by-step tutorial check-in blade file if a variable is empty in laravel. This tutorial will give you a simple example of how to check in the blade file if a variable is empty in laravel. I want to show you the laravel check in the blade file if a variable is empty or not example. I explained simply how to check if a variable is empty in laravel blade.</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<p>You have to follow the below step and you will get the layout as below:</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre class="prettyprint">
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Create Format Route</strong>
+
+<strong>web.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmptyVariableController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index',[EmptyVariableController::class, 'index']);
+</pre>
+
+<strong class="step">Step 3: Create EmptyVariableController</strong>
+
+<p>we will create EmptyVariableController. so you can see the below code with output:</p>
+
+<pre class="prettyprint">
+php artisan make:controller EmptyVariableController
+</pre>
+
+<strong>App\Http\Controllers\EmptyVariableController</strong>
+
+<pre class="prettyprint">
+&lt;?php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class EmptyVariableController extends Controller
+{
+    
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    public function index()
+    {
+        $data = null;
+
+        return view('index', compact('data'));
+        
+    }
+}
+</pre>
+
+<strong class="step">Step 4: Create Blade File index.blade.php</strong>
+
+<strong>resources/views/index.blade.php</strong>
+
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Check in Blade File if Variable is Empty in Laravel: NiceSnippets.com&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    @if(empty($data))
+        
+        {{ dd('it\'s empty variable') }}  
+    
+    @else
+
+        {{ dd('it\'s not empty variable') }}
+    
+    @endif    
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<strong class="step step-start">Step 5: Start Development Server</strong>
+
+<p>Start the development server. Use the PHP artisan serve command and start your server:</p>
+
+<pre>
+php artisan serve
+</pre>
+
+<p>Now you are ready to run our example so run the below command to quick run.</p>
+
+<pre>
+http://localhost:8000/index
+</pre>
+
+<strong>Output:</strong>
+
+<pre>
+"It's an empty variable" // resources/views/index.blade.php
+</pre>
+
+<p>I hope it can help you...</p>

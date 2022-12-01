@@ -1,0 +1,378 @@
+<p>Hello Friends,</p>
+
+<p>Here, I will show you how to upload a profile photo in laravel. step by step explains laravel and how to upload profile images in laravel. if you want to see an example of a laravel profile image upload then you are in the right place. I explained simply how to upload a profile photo avatar in laravel. Here, Creating a basic example of a laravel profile picture upload.</p>
+
+<p>In this post, I will show you step-by-step how to create a profile page for profile image upload. we will create basic auth using laravel ui. Then we will add an avatar column to the user's table for profile pictures. We will create one GET route to show the profile page with the form. They can upload or change their profile photo from that page. Then we will create a POST route to submit the form. so, let's follow the below steps:</p>
+
+<p>You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.</p>
+
+<strong class="step">Step 1: Install Laravel</strong>
+
+<p>This is optional; however, if you have not created the laravel app, then you may go ahead and execute the below command:</p>
+
+<pre>
+composer create-project laravel/laravel example-app
+</pre>
+
+<strong class="step">Step 2: Setup Database Configuration</strong>
+
+<p>After successfully installing the laravel app then configuring the database setup. We will open the ".env" file and change the database name, username and password in the env file.</p>
+
+<strong>.env</strong>
+
+<pre class="prettyprint">
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=Enter_Your_Database_Name
+DB_USERNAME=Enter_Your_Database_Username
+DB_PASSWORD=Enter_Your_Database_Password
+</pre>
+
+<strong class="step">Step 3: Install Auth Scaffold</strong>
+
+<p>Laravel's laravel/ui package provides a quick way to scaffold all of the routes and views you need for authentication using a few simple commands:</p>
+
+<pre class="prettyprint">
+composer require laravel/ui
+</pre>
+
+<p>Next, we need to generate auth scaffold with bootstrap, so let's run the below command:</p>
+
+<pre class="prettyprint">
+php artisan ui bootstrap --auth
+</pre>
+
+<p>Then, install npm packages using the below command:</p>
+
+<pre class="prettyprint">
+npm install
+</pre>
+
+<p>At last, built bootstrap CSS using the below command:</p>
+
+<pre class="prettyprint">
+npm run build
+</pre>
+
+<strong class="step">Step 4: Create Migration</strong>
+
+<p>In this step, we need to create a new migration to add the avatar field to the users table. so let's run the below code and run migration.</p>
+
+<pre class="prettyprint">
+php artisan make:migration add_new_fields_users
+</pre>
+
+<strong>database/migrations/2022_11_24_110854_add_new_fields_users.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+  
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->nullable();
+        });
+    }
+  
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar');
+        });
+    }
+
+};
+</pre>
+
+<p>Now, run migration with the following command:</p>
+
+<pre class="prettyprint">
+php artisan migrate
+</pre>
+
+<p>Next, update the User.php model file.</p>
+
+<strong>app/Models/User.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+    
+namespace App\Models;
+    
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+  
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+ 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'avatar',
+    ];
+  
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+  
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+}
+</pre>
+
+<strong class="step">Step 5: Create Route</strong>
+
+<p>In this step, we will create profile GET and POST routes for profile image upload. you can see the below routes:</p>
+
+<strong>routes/web.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+use Illuminate\Support\Facades\Route;
+  
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+  
+Route::get('/', function () {
+    return view('welcome');
+});
+  
+Auth::routes();
+   
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('user.profile');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
+</pre>
+
+<strong class="step">Step 6: Create Controller</strong>
+
+<p>Here, we will create ProfileController with index() and store() method. so let's copy the below code and add it to the controller file:</p>
+
+<strong>app/Http/Controllers/ProfileController.php</strong>
+
+<pre class="prettyprint">
+&lt;?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+  
+class ProfileController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('profile');
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image',
+        ]);
+  
+        $avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+        $request->avatar->move(public_path('avatars'), $avatarName);
+  
+        Auth()->user()->update(['avatar'=>$avatarName]);
+  
+        return back()->with('success', 'Avatar updated successfully.');
+    }
+}
+</pre>
+
+<strong class="step">Step 7: Create Blade File</strong>
+
+<p>In this step, we will create a profile blade file. in this file, we will add a form for profile picture upload. so let's update the following file:</p>
+
+<strong>resources/views/profile.blade.php</strong>
+
+<pre class="prettyprint">
+@extends('layouts.app')
+  
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;{{ __('Profile') }}&lt;/div&gt;
+  
+                &lt;div class="card-body"&gt;
+                    &lt;form method="POST" action="{{ route('user.profile.store') }}" enctype="multipart/form-data"&gt;
+                        @csrf
+  
+                        @if (session('success'))
+                            &lt;div class="alert alert-success" role="alert"&gt;
+                                {{ session('success') }}
+                            &lt;/div&gt;
+                        @endif
+  
+                        &lt;div class="row mb-3"&gt;
+                            &lt;label for="avatar" class="col-md-4 col-form-label text-md-end"&gt;{{ __('Avatar') }}&lt;/label&gt;
+  
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar"&gt;
+  
+                                &lt;img src="/avatars/{{ Auth::user()-&gt;avatar }}" style="width:80px;margin-top: 10px;"&gt;
+  
+                                @error('avatar')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+  
+                        &lt;div class="row mb-0"&gt;
+                            &lt;div class="col-md-8 offset-md-4"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;
+                                    {{ __('Upload Profile') }}
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+</pre>
+
+<p>Next, Add the Profile Page link and avatar on the top navbar as below:</p>
+
+<strong>resources/views/layouts/app.blade.php</strong>
+
+<pre class="prettyprint">
+...
+  
+<!-- Right Side Of Navbar -->
+&lt;ul class="navbar-nav ms-auto"&gt;
+&lt;!-- Authentication Links --&gt;
+@guest
+    @if (Route::has('login'))
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="{{ route('login') }}"&gt;{{ __('Login') }}&lt;/a&gt;
+        &lt;/li&gt;
+    @endif
+  
+    @if (Route::has('register'))
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="{{ route('register') }}"&gt;{{ __('Register') }}&lt;/a&gt;
+        &lt;/li&gt;
+    @endif
+@else
+    &lt;li class="nav-item dropdown"&gt;
+        &lt;a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre&gt;
+            &lt;img src="/avatars/{{ Auth::user()->avatar }}" style="width: 30px; border-radius: 10%"&gt;
+            {{ Auth::user()->name }}
+        &lt;/a>
+  
+        &lt;div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"&gt;
+            &lt;a href="{{ route('user.profile') }}" class="dropdown-item"&gt;Profile&lt;/a&gt;
+            &lt;a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();"&gt;
+                {{ __('Logout') }}
+            &lt;/a&gt;
+  
+            &lt;form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"&gt;
+                @csrf
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+@endguest
+&lt;/ul&gt;
+  
+...
+</pre>
+
+<strong class="step step-start">Run Laravel App:</strong>
+
+<p>All the required steps have been done, now you have to type the given below command and hit enter to run the Laravel app:</p>
+
+<pre>
+php artisan serve
+</pre>
+
+<p>Now, Go to your web browser, type the given URL and view the app output:</p>
+
+<pre>
+http://localhost:8000/
+</pre>
+
+<strong>Profile Page:</strong>
+
+<div><img src="/image/laravel-upload-profile-photo.png" style="width: 100%; height: 100%; border: 1px solid #d2d2d2;"></div>
+
+<p>I hope it can help you...</p>

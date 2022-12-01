@@ -225,3 +225,7 @@ Title: How to Check if a Variable is Empty in Laravel Blade?
 55: laravel 
 keyword: laravel registration image upload with an example, how to upload a profile image of a user in laravel, upload profile picture in laravel registration, laravel avatar upload in the registration form, upload avatar in laravel registration, how to upload image in the registration form in laravel
 Title: Laravel Registration Image Upload With an Example
+
+56: laravel
+keyword: how to upload a profile photo avatar in laravel, laravel avatar image upload, laravel profile image upload, how to upload profile image in laravel, how to upload profile photo in laravel, laravel profile picture upload
+Title: How to Upload a Profile Photo Avatar in Laravel?
